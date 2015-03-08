@@ -1,0 +1,162 @@
+% A collection of commands that you can use in your CV.
+%
+% Bear in mind that the environments and commands introduced here are
+% opinionated. Feel free to change some of it to suite your needs.
+
+% The environments rely on minipages, and minipages have the `\parskip` value
+% set to `0`. And thus, initialize this variable in order to store the globally
+% set paragraph length values.
+\newlength{\currentparskip}
+
+% Colors
+\definecolor{light-grey}{gray}{0.125}
+
+% A horizontal rule for sections.
+\newcommand{\HRule}[2]{\textcolor{#1}{\rule{\linewidth}{#2}}}
+
+% Introduces a section title. Typically, you wouldn't use this directly.
+% Arg1: The title of a given section.
+\newcommand{\sectiontitle}[1]{
+  \begin{minipage}{\textwidth}\HRule{black}{0.25mm}\vspace{-10pt}\begin{center}\Large\MakeUppercase{#1}\end{center}\end{minipage}\\\HRule{light-grey}{0.15mm}\vspace{\baselineskip}
+}
+
+% This represents a list, where items are in-line. Should be used inside a
+% `\cvlistssection` environment.
+% Arg1: List title
+% Arg2: List elements
+\newcommand{\linelist}[2]{
+  {#1} & {#2}\\
+}
+
+% Represents a section in a resume.
+% Arg1: The section's title.
+\newenvironment{cvsection}[1]{
+  \sectiontitle{#1}}
+  {\vspace{2pt}}
+
+% Represents a section in a resume that will contain in-line lists.
+% Arg1: The section's title.
+\newenvironment{cvlistssection}[1]{
+  
+  \sectiontitle{#1}\begin{tabular}{ r p{12cm} }}
+  {\end{tabular}}
+
+% Defines a position or job title. Typically, you wouldn't use this directly.
+% Arg1: Position title
+% Arg2: Company or Office---Company
+% Arg3: Location, PROV
+% Arg4: Date Range
+\newcommand{\cvjobentryheader}[4]{
+  \vspace{-5pt}\textbf{#1}\hspace{\stretch{1}}\textcolor{light-grey}{#3}\\\textit{#2}\hspace{\stretch{1}}\vspace{5pt}\textcolor{light-grey}{#4}\\
+}
+
+% Defines a header for a position or job title in a technical. Typically, you
+% wouldn't use this directly.
+% Arg1: Position title
+% Arg2: Company or Office---Company
+% Arg3: Location, PROV
+% Arg4: Date Range
+% Arg5: A comma-separated list of tools that you want to include in your CV.
+\newcommand{\cvtechjobentryheader}[5]{
+  \vspace{-5pt}\textbf{#1} \textit{#5}\hspace{\stretch{1}}\textcolor{light-grey}{#3}\\\textit{#2}\hspace{\stretch{1}}\vspace{5pt}\textcolor{light-grey}{#4}\\
+}
+
+\newcommand{\cventryheader}[1]{
+  \vspace{-5pt}\textbf{#1} \\
+}
+
+% A cvitem is a simple listed entry.
+% Arg1: represents a list item in a section.
+\newcommand{\cvitem}[1]{
+  \vspace{-1pt}
+  \item \begin{flushleft} #1 \end{flushleft}
+}
+
+% This is a resume entry with a header and bullet items
+% Arg1: Position or title
+% Arg2: Company
+% Arg3: Location
+% Arg4: Date range
+\newenvironment{cvjoblistedentry}[4]{
+  \setlength{\currentparskip}{\parskip}
+  \begin{minipage}{\textwidth}\setlength{\parskip}{\currentparskip}
+    \cvjobentryheader{#1}{#2}{#3}{#4}
+        \vspace{-18pt}
+    \begin{itemize}[noitemsep,nolistsep]
+}{
+    \end{itemize}
+        \vspace{10pt}
+        \end{minipage}
+}
+
+% This is a resume entry with a header and bullet items
+% Arg1: Position or title
+% Arg2: Company
+% Arg3: Location
+% Arg4: Date range
+% Arg5: A comma-separated list of tools used.
+\newenvironment{cvtechjoblistedentry}[5]{
+  \setlength{\currentparskip}{\parskip}
+  \begin{minipage}{\textwidth}\setlength{\parskip}{\currentparskip}
+    \cvtechjobentryheader{#1}{#2}{#3}{#4}{#5}
+        \vspace{-18pt}
+    \begin{itemize}[noitemsep,nolistsep]
+}{
+    \end{itemize}
+        \vspace{10pt}
+        \end{minipage}
+}
+
+% Represents an entry that can be written in paragraphs.
+% Arg1: Position or title
+% Arg2: Company
+% Arg3: Location
+% Arg4: Date range
+\newenvironment{cvjobentry}[4]{
+  \setlength{\currentparskip}{\parskip}
+  \begin{minipage}{\textwidth}\setlength{\parskip}{\currentparskip}
+    \cvjobentryheader{#1}{#2}{#3}{#4}}{\end{minipage}\vspace{10pt}}
+
+% Represents an entry that can be written in paragraphs.
+% Arg1: Title
+\newenvironment{cventry}[1]{
+  \setlength{\currentparskip}{\parskip}
+  \begin{minipage}{\textwidth}\setlength{\parskip}{\currentparskip}
+    \cventryheader{#1}}{\end{minipage}\vspace{10pt}}
+
+% Represents an entry that can be written in paragraphs, and can also display
+% the tools and skills used in the entry.
+% Arg1: Position or title
+% Arg2: Company
+% Arg3: Location
+% Arg4: Date range
+% Arg5: A comma-separated list of tools used.
+\newenvironment{cvtechjobentry}[5]{
+  \setlength{\currentparskip}{\parskip}
+  \begin{minipage}{\textwidth}\setlength{\parskip}{\currentparskip}
+    \cvtechjobentryheader{#1}{#2}{#3}{#4}{#5}}{\end{minipage}\vspace{10pt}}
+
+% An entry for memberships
+% Arg1: Board
+% Arg2: Position
+% Arg3: Date
+\newcommand{\boardentry}[3]{
+  \begin{minipage}{\textwidth}
+  \vspace{-9pt}
+  \textbf{#1}\\
+  \textit{#2}, \textit{#3}\\
+  \vspace{0.5\baselineskip}
+  \end{minipage}
+}
+
+% An entry for education
+% Arg1: Institution
+% Arg2: Program
+% Arg3: Dates
+\newcommand{\cvedentry}[3]{
+  \begin{minipage}{\textwidth}
+  \textbf{#1}\\
+  \textit{#2}\hfill\textcolor{light-grey}{#3}\\
+  \vspace{0.5\baselineskip}
+  \end{minipage}
+}

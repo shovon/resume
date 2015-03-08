@@ -1,0 +1,75 @@
+\include{include/variables}
+\include{include/beginning}
+\include{include/structure}
+
+\begin{document}\thispagestyle{empty}
+
+  \input{include/header}
+
+  \begin{cvsection}{Profile}
+    I am a software engineer, with a passion for programming. I am always looking to improve my programming skills, by either solving project euler problems, reading white papers, or meeting other fellow programmers. I have also worked on a system that collected telemetry data from a house, ensuring reliability and accuracy in the collected data.
+  \end{cvsection}
+
+  \begin{cvlistssection}{skills}
+    \linelist{Languages}{C++, Python, Java, C\#, Go, JavaScript, PHP}
+    \linelist{Libraries and Frameworks}{Node.js, AngularJS, React, Underscore.js, Backbone.js, \mbox{Bootstrap}}
+    \linelist{Tools}{Git, Docker, Nginx, Ansible, Vagrant}
+    \linelist{Other}{Linux, MongoDB, Gitflow, Networking (OSI Model), HTTP, Web Front-End, REST, JSON, \mbox{Functional}, TDD}
+  \end{cvlistssection}
+
+  \begin{cvsection}{experience}
+    \begin{cvtechjoblistedentry}{Systems Development Research Assistant + Co-Op}{School of Interactive Arts + Technology --- Simon Fraser University}{Surrey, BC}{August2012 --- Present}{Node.js, Express, MySQL}
+      \cvitem{Reverse engineered and wrote a wrapper around an HTTP server that controlled and monitored devices in a home}
+      \cvitem{Experimented with open-zwave to communicate with Z-Wave devices (light-switches, dimmers, thermostats, etc.). Wrote Node.js scripts to talk direclty to Insteon devices via serial ports}
+      \cvitem{Implemented a per-device home utility use data storage system. The system is given fourty-two data points at a ten second interval. It is able to run queries on the stored data in a fraction of a second, including retrieving data in different granularities in aggregate}
+    \end{cvtechjoblistedentry}
+    \begin{cvjoblistedentry}{Teaching Assistant}{School of Interactive Arts + Technology --- Simon Fraser University}{Surrey, BC}{September 2014--- December 2014}
+      \cvitem{taught students how to work with 32-bit integers to store and retrieve pixel information}
+      \cvitem{showed students how to blur images, and how to extract edges in images, with the help of convolution kernels (Hadamard Product and Summation)}
+      \cvitem{demonstrated 3D compositing using three.js}
+      \cvitem{taught students how to work with audio, and how to extract frequency information using the discrete Fourier transform (DFT), and its close relative, the fast Fourier transform (FFT)}
+      \vspace{10pt}
+    \end{cvjoblistedentry}
+    \newpage
+    \begin{cvjoblistedentry}{Co-Op System's Engineer}{StrongLoop, Inc.}{Vancouver, BC}{August 2013--- December 2013}
+      \cvitem{wrote monkey patchers that listens in on function calls and event hooks of various open-source Node.js modules that my be used by applications}
+      \cvitem{added dynamically updating graphs to the StrongOps dashboard}
+      \cvitem{added a heap-profiler graph to the StrongOps dashboard}
+      \cvitem{fixed bugs that occurred on the StrongOps dashboard}
+    \end{cvjoblistedentry}
+    \begin{cvtechjoblistedentry}{Front-End Developer Intern}{7Geese}{Vancouver, BC}{May 2012 --- August 2012}{CoffeeScript, Backbone.js}
+      \cvitem{fixed bugs that occurred on the front-end}
+      \cvitem{implemented the recognition board}
+      \cvitem{translated Photoshop mock-ups into HTML equivalent pages and features}
+    \end{cvtechjoblistedentry}
+  \end{cvsection}
+
+  \begin{cvsection}{Personal Projects}
+    \vspace{-30pt}
+    \begin{itemize}
+      \vspace{-5pt}
+      \begin{item}\textit{3d-without-webgl --- github.com/shovon/3d-without-webgl}\\ \ Me practicing 3D compositing without OpenGL. I mostly did it as an excercise of applying the content that I learned in my Linear Algebra class\end{item}
+      \vspace{-5pt}
+      \begin{item}\textit{node-rudp --- github.com/shovon/node-rudp}\\ \ Reliable UDP on Node.js. Uses the sliding window method to keep track of packet ordering\end{item}
+      \vspace{-5pt}
+      \begin{item}\textit{libvorbis.js --- github.com/shovon/libvorbis.js}\\ \ libvorbis.js was my attempt at getting OGG/Vorbis encoding working on the browser.\end{item}
+    \end{itemize}
+  \end{cvsection}
+
+  \begin{cvsection}{education}
+    \vspace{-10pt}
+    \begin{cvedentry}{Simon Fraser University}{Bachelor of Applied Sciences (B.A.Sc.) (Software Systems)}{September 2010 --- Present}
+      \vspace{10pt}
+      \ Relevant Courses\\
+      \begin{tabular}{ r p{12cm} }
+        Math & Linear Algebra, Discrete Math I, Discrete Math II Differential \mbox{Calculus}, Statistics I\\
+        Computer Science & Data Structures and Programming, Introduction to Computer Design, Computer Architecture\\
+      \end{tabular}
+    \end{cvedentry}
+  \end{cvsection}
+
+  \begin{cvsection}{interests}
+    programming, Unix, cryptography
+  \end{cvsection}
+
+\end{document}
